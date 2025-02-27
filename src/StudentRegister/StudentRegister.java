@@ -4,12 +4,15 @@
  */
 package StudentRegister;
 
+
 import java.io.*;
 import java.lang.System.Logger;
 import java.util.*;
 import java.util.logging.Level;
 import model.FileManager;
 import static model.FileManager.*;
+
+import model.Menu;
 import model.Student;
 
 /**
@@ -30,13 +33,17 @@ public class StudentRegister {
         
         initFiles();
         filetoArray();
-        menu();
+        showMenu();
 
     } 
     /**
      *muestra el menu y llama a metodos
      */
-    public static void menu(){
+    public static void showMenu(){
+        
+        Menu menu = new Menu(); 
+        menu.setVisible(true);
+        /*
         Scanner sc = new Scanner(System.in);
         String opc;
         
@@ -72,13 +79,14 @@ public class StudentRegister {
                     break;
             }
         } while (!opc.equals("0"));
-
+       */
     }
     
     public static void newstudent() {
+        
+        
+        /*
         Scanner sc = new Scanner(System.in);
-        
-        
         System.out.println("Ingrese el nombre del alumno");
         String name = sc.nextLine();
         System.out.println("Ingrese el apellido del alumno");
@@ -123,14 +131,16 @@ public class StudentRegister {
         else{
             System.out.println("Ya hay un alumno registrado con el mismo dni. \n");
         }
-        
+        */
     }
 
     public static void showstudents() {
+        
+        /*
         for (var student : students) {
             System.out.println(student.toString());
         }
-
+        */
     }
 
     public static void deletestudent() {
@@ -147,7 +157,7 @@ public class StudentRegister {
         
         for(Student selectedStudent : students){
             if (selectedStudent.getDni().equals(inputdni)) {
-                dniexists = ture;
+                dniexists = true;
                 students.remove(selectedStudent);
                 try{
         FileWriter fw = new FileWriter(registerFile);
