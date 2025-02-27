@@ -80,7 +80,7 @@ public class AddStudent extends javax.swing.JFrame {
         jLabel2.setText("Surname:");
 
         jTxtAge.setActionCommand("<Not Set>");
-        jTxtAge.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        jTxtAge.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jTxtAge.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTxtAgeActionPerformed(evt);
@@ -106,7 +106,7 @@ public class AddStudent extends javax.swing.JFrame {
         jLabel5.setText("DNI:");
 
         jLblError.setForeground(new java.awt.Color(255, 0, 0));
-        jLblError.setText("jLabel6");
+        jLblError.setText(" ");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -208,17 +208,18 @@ public class AddStudent extends javax.swing.JFrame {
     }//GEN-LAST:event_jBttnCancelActionPerformed
 
     private void jBttnOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBttnOKActionPerformed
-        boolean studentexists = false;
+        
         int ageint = 0;
-
-        if (!jTxtAge.getText().equals("")) {
-            ageint = Integer.parseInt(jTxtAge.getText());
-        }
-
-        if (jTxtName.getText() == null || jTxtSurname.getText() == null || jTxtCourse.getText() == null || jTxtDNI.getText() == null) {
+        
+        if (jTxtName.getText().equals("") || jTxtSurname.getText().equals("") || jTxtAge.getText().equals("") || jTxtCourse.getText().equals("") || jTxtDNI.getText().equals("")) {
             jLblError.setText("Completa todos los campos.");
-        } else {
-
+            
+            
+        } 
+        
+        else {
+            boolean studentexists = false;
+            ageint = Integer.parseInt(jTxtAge.getText());
             Student stdnt = new Student(jTxtName.getText(), jTxtSurname.getText(), ageint, jTxtCourse.getText(), jTxtDNI.getText());
 
             for (Student existingstudent : StudentRegister.StudentRegister.students) {
@@ -226,7 +227,7 @@ public class AddStudent extends javax.swing.JFrame {
                     studentexists = true;
                 }
             }
-
+            
             if (!studentexists) {
 
                 StudentRegister.StudentRegister.students.add(stdnt);
