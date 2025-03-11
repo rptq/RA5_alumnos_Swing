@@ -68,7 +68,7 @@ public class RemoveStudent extends javax.swing.JFrame {
             }
         });
 
-        jLblMessage.setText("jLabel2");
+        jLblMessage.setText("  ");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

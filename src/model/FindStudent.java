@@ -68,7 +68,7 @@ public class FindStudent extends javax.swing.JFrame {
             }
         });
 
-        jLblMessage.setText("jLabel2");
+        jLblMessage.setText("  ");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -118,7 +118,7 @@ public class FindStudent extends javax.swing.JFrame {
         for (var student : students) {
             if (jTxtDNI.getText().equalsIgnoreCase(student.getDni())) {
                 jLblMessage.setText(student.toString());
-                
+                break;
             }
                 else{
                 jLblMessage.setText("Estudiante no encontrado");

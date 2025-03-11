@@ -106,7 +106,7 @@ public class AddStudent extends javax.swing.JFrame {
         jLabel5.setText("DNI:");
 
         jLblError.setForeground(new java.awt.Color(255, 0, 0));
-        jLblError.setText(" ");
+        jLblError.setText("  ");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
