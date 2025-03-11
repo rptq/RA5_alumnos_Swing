@@ -64,16 +64,17 @@ public class ShowStudents extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addComponent(jLblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(312, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLblStudentList, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGap(22, 22, 22)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLblStudentList, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 298, Short.MAX_VALUE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap(376, Short.MAX_VALUE)
                         .addComponent(jBttnNextPage, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jBttnOK)))
@@ -85,12 +86,12 @@ public class ShowStudents extends javax.swing.JFrame {
                 .addGap(20, 20, 20)
                 .addComponent(jLblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLblStudentList, javax.swing.GroupLayout.PREFERRED_SIZE, 297, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLblStudentList, javax.swing.GroupLayout.DEFAULT_SIZE, 302, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jBttnOK)
                     .addComponent(jBttnNextPage))
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addGap(14, 14, 14))
         );
 
         pack();
@@ -103,6 +104,18 @@ public class ShowStudents extends javax.swing.JFrame {
     }//GEN-LAST:event_jBttnOKActionPerformed
 
     private void jBttnNextPageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBttnNextPageActionPerformed
+        int line = 0;
+        
+        jLblStudentList.setText("<html>");
+        
+        for (var student : students) {
+            
+            line = line+1;
+            jLblStudentList.setText(jLblStudentList.getText() + line + ": " + student.toString() + "<br>");
+            
+            
+        }
+        jLblStudentList.setText(jLblStudentList.getText() + "</html>");
         
     }//GEN-LAST:event_jBttnNextPageActionPerformed
 
@@ -148,14 +161,11 @@ public class ShowStudents extends javax.swing.JFrame {
         jLblStudentList.setText("<html>");
         
         for (var student : students) {
-            if (line <= 14){
+            
             line = line+1;
             jLblStudentList.setText(jLblStudentList.getText() + line + ": " + student.toString() + "<br>");
-            }
-            else if (jBttnNextPage.getModel().isPressed()){
-            line = line+1;
-            jLblStudentList.setText(line + ": " + student.toString() + "<br>");
-            }
+            
+            
         }
         jLblStudentList.setText(jLblStudentList.getText() + "</html>");
         
